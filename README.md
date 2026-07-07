@@ -1,32 +1,53 @@
-# React + TypeScript + Vite
+# E-Commerce Storefront
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+This is a single-page e-commerce web application built with React, TypeScript, Vite, and Tailwind CSS, using the E-comus API.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS
+- React Router
+- Axios
+- Lucide React (icons)
 
-## React Compiler
+## Setup and Run Instructions
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
 
-## Expanding the Oxlint configuration
+2. Create a `.env` file in the root directory with:
+   ```env
+   VITE_API_BASE_URL=https://e-commas-apis-production-e0f8.up.railway.app
+   ```
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+3. Run the development server:
+   ```bash
+   npm run dev
+   ```
 
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
+4. Open your browser and navigate to `http://localhost:5173`
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Key Decisions
+
+- **State Management**: Used React Context API for both authentication and cart state for simplicity and since the app isn't overly complex
+- **API Layer**: Centralized API calls using Axios with interceptors for automatic token handling and error responses
+- **Styling**: Used Tailwind CSS for rapid and consistent styling
+- **Routing**: Implemented public and protected routes with React Router
+
+## Features
+
+- User authentication (login/register/logout)
+- Product listing with search, filtering by category, and sorting
+- Product details page
+- Shopping cart with add, remove, and quantity update functionality
+- Responsive design for mobile, tablet, and desktop
+
+## Known Limitations
+
+- Checkout and order history features are not implemented (API endpoints may not be available or fully tested)
+- Cart persistence is done locally in localStorage, not via API
+
